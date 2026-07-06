@@ -12,7 +12,7 @@ interface CreatePostPayload {
 // We don't call cancelQueries here like the toggle-join mutation does. Posts
 // are prepended (not patched in place), so a background refetch finishing
 // mid-mutation just means we briefly see a duplicate before onSettled
-// invalidates - visually harmless, and not worth the extra await.
+// invalidates.
 export const useCreatePost = (communityId: string) => {
   const queryClient = useQueryClient();
   const cacheKey = ["community-posts", communityId];

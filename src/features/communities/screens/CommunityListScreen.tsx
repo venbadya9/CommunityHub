@@ -202,6 +202,7 @@ export const CommunityListScreen = () => {
         />
       ) : (
         <FlashList
+          key={sortBy}
           ref={listRef}
           style={styles.list}
           showsVerticalScrollIndicator={false}

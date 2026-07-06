@@ -1,0 +1,58 @@
+[
+  {
+    "id": "101",
+    "name": "React Native Architecture",
+    "description": "Native modules, new architecture migration notes, and general performance questions.",
+    "memberCount": 6421,
+    "isJoined": true
+  },
+  {
+    "id": "102",
+    "name": "Design Systems",
+    "description": "Shared component libraries, tokens, and getting designers and engineers to agree on spacing.",
+    "memberCount": 3184,
+    "isJoined": false
+  },
+  {
+    "id": "103",
+    "name": "TypeScript Power Users",
+    "description": "Type-level tricks, generics, and strict mode war stories.",
+    "memberCount": 9027,
+    "isJoined": true
+  },
+  {
+    "id": "104",
+    "name": "Expo & EAS",
+    "description": "Build configs, dev clients, and OTA update questions.",
+    "memberCount": 4560,
+    "isJoined": true
+  },
+  {
+    "id": "105",
+    "name": "Local Meetup Organizers",
+    "description": "Coordinating in-person meetups, roughly once a month.",
+    "memberCount": 34,
+    "isJoined": false
+  },
+  {
+    "id": "106",
+    "name": "General Programming",
+    "description": "Anything that doesn't fit in a more specific community.",
+    "memberCount": 15230,
+    "isJoined": false
+  },
+  {
+    "id": "107",
+    "name": "iOS Native Bridging",
+    "description": "Swift/Obj-C interop, native modules, and turbo module migration questions.",
+    "memberCount": 2708,
+    "isJoined": false
+  },
+  {
+    "id": "108",
+    "name": "State Management",
+    "description": "Zustand, Redux, Jotai, and the eternal debate over where state should live.",
+    "memberCount": 5893,
+    "isJoined": false
+  }
+]

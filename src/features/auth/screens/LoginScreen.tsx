@@ -44,7 +44,7 @@ export const LoginScreen = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>communityhub</Text>
+      <Text style={styles.text}>Community Hub</Text>
 
       <View style={styles.inputContainer}>
         <Text style={styles.label}>Enter Email</Text>

@@ -73,12 +73,25 @@ const storage = {
     appStorage.set(KEYS.POST_SYNC_QUEUE, JSON.stringify(queue)),
 };
 
+const applyPendingToggle = (community: Community): Community => {
+  const queue = storage.getSyncQueue();
+  if (!queue.includes(community.id)) return community;
+
+  const isNowJoined = !community.isJoined;
+  return {
+    ...community,
+    isJoined: isNowJoined,
+    memberCount: community.memberCount + (isNowJoined ? 1 : -1),
+  };
+};
+
 export const communityApi = {
   // TODO: limit is hardcoded for now - revisit if/when this needs to be
   // configurable per screen size or connection speed.
   getCommunitiesList: async (
     page: number,
     search: string,
+    sortBy: "name" | "members",
     limit = 10,
   ): Promise<PaginatedResult<Community>> => {
     await new Promise((r) => setTimeout(r, 600));
@@ -98,8 +111,14 @@ export const communityApi = {
       );
     }
 
+    all = [...all].sort((a, b) =>
+      sortBy === "name"
+        ? a.name.localeCompare(b.name)
+        : b.memberCount - a.memberCount,
+    );
+
     const offset = (page - 1) * limit;
-    const data = all.slice(offset, offset + limit);
+    const data = all.slice(offset, offset + limit).map(applyPendingToggle);
 
     return {
       data,
@@ -111,7 +130,7 @@ export const communityApi = {
     await new Promise((r) => setTimeout(r, 300));
     const community = storage.getCommunities().find((c) => c.id === id);
     if (!community) throw new NotFoundError(`Community ${id} not found`);
-    return { ...community };
+    return applyPendingToggle({ ...community });
   },
 
   getPostsByCommunityId: async (communityId: string): Promise<Post[]> => {
@@ -156,9 +175,7 @@ export const communityApi = {
   ): Promise<Post | null> => {
     await new Promise((r) => setTimeout(r, 500));
 
-    // id is generated here rather than by a "server" because there is no
-    // server - this is the mock persistence layer. Real backend would return
-    // its own id and we'd reconcile the temp one on success.
+    // id is generated here rather than by a "server" because there is no server
     const newPost: Post = {
       id: `post-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
       title,
@@ -192,7 +209,7 @@ export const communityApi = {
   },
 
   processOfflineQueue: async () => {
-    // Queue is processed in order and we bail on the first failure instead
+    // Queue is processed in order and we take on the first failure instead
     // of skipping past it - if community A fails to sync we don't want to
     // sync B and C first and end up with an inconsistent join order if the
     // user is looking at the list while this runs.

@@ -66,9 +66,11 @@ export const useToggleJoin = (id: string) => {
       });
     },
 
-    onSettled: () => {
-      queryClient.invalidateQueries({ queryKey: detailKey });
-      queryClient.invalidateQueries({ queryKey: ["communities"] });
+    onSettled: (result) => {
+      if (result) {
+        queryClient.invalidateQueries({ queryKey: detailKey });
+        queryClient.invalidateQueries({ queryKey: ["communities"] });
+      }
     },
   });
 };

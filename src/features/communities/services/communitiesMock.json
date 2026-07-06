@@ -54,5 +54,75 @@
     "description": "Zustand, Redux, Jotai, and the eternal debate over where state should live.",
     "memberCount": 5893,
     "isJoined": false
+  },
+  {
+    "id": "109",
+    "name": "Backend for Frontend",
+    "description": "GraphQL, tRPC, and optimizing data fetching layers for mobile apps.",
+    "memberCount": 4210,
+    "isJoined": false
+  },
+  {
+    "id": "110",
+    "name": "Accessibility",
+    "description": "Screen readers, contrast ratios, and building truly inclusive mobile experiences.",
+    "memberCount": 2150,
+    "isJoined": true
+  },
+  {
+    "id": "111",
+    "name": "Animations & Gestures",
+    "description": "Reanimated, gesture-handler, and making apps feel fluid and alive.",
+    "memberCount": 7840,
+    "isJoined": true
+  },
+  {
+    "id": "112",
+    "name": "Automated Testing",
+    "description": "Jest, Maestro, Detox, and integration testing strategies.",
+    "memberCount": 3920,
+    "isJoined": false
+  },
+  {
+    "id": "113",
+    "name": "Security & Auth",
+    "description": "OAuth, JWT handling, secure storage, and protecting user data.",
+    "memberCount": 5670,
+    "isJoined": true
+  },
+  {
+    "id": "114",
+    "name": "Cloud Functions & Serverless",
+    "description": "Firebase Functions, AWS Lambda, and keeping the backend lean.",
+    "memberCount": 3340,
+    "isJoined": false
+  },
+  {
+    "id": "115",
+    "name": "App Store Optimization",
+    "description": "Submission tips, metadata best practices, and avoiding review rejections.",
+    "memberCount": 1890,
+    "isJoined": false
+  },
+  {
+    "id": "116",
+    "name": "WebAssembly in Mobile",
+    "description": "Running high-performance C++/Rust code in React Native environments.",
+    "memberCount": 845,
+    "isJoined": false
+  },
+  {
+    "id": "117",
+    "name": "Offline First Architecture",
+    "description": "WatermelonDB, SQLite, and handling complex sync conflicts.",
+    "memberCount": 2980,
+    "isJoined": true
+  },
+  {
+    "id": "118",
+    "name": "React Native Web",
+    "description": "Sharing codebases between mobile, tablet, and browser platforms.",
+    "memberCount": 6120,
+    "isJoined": false
   }
 ]

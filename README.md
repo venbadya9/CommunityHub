@@ -12,15 +12,17 @@ A mobile app for browsing communities, joining them, and creating posts inside t
 - Expo Go (on a physical device) or an iOS/Android simulator
 
 ### Run the app
-bash
+```bash
 npm install
 npx expo start
+```
 **Note:** For testing offline scenarios (network loss, queued actions, syncing), it's recommended to use a physical device, as network changes are more reliable than on a simulator.
 
 ## Project Structure
 
 The codebase is organized by feature rather than technical layers, so each domain owns everything it needs.
 
+```text
 src/
   api/            shared React Query setup
   features/
@@ -30,6 +32,7 @@ src/
   navigation/     app routing (auth vs main flow)
   shared/         reusable UI, hooks, storage, utils, theme
   types/          shared TypeScript models
+```
 
 ## State Management Approach
 Two tools, each used where it makes the most sense.
@@ -84,13 +87,13 @@ The app is designed to feel instant, even when operations are technically asynch
 Post drafts are persisted per community.
 If the app is closed or crashes, reopening the create post screen restores the draft automatically. It’s intentionally simple but makes the writing experience much more reliable.
 
-## Trade-offs & What I'd Improve
+## Trade-offs & What I would improve
 - The mock API simulates latency but not failures. Adding failure scenarios would make offline and retry logic more realistic.
 - The offline queue is currently a simple array. For a larger application, I'd replace it with a proper pattern.
 - There are no tests yet. The hooks and API layer would be the best place to begin.
 - Pagination is currently in-memory and offset-based. A real API would likely use cursor-based pagination.
 
-## What I'd Add Next
+## What I would add next
 - A proper offline outbox with typed actions, retries, and persistence
 - Unit tests for the API layer and mutation hooks
 - Better API simulation with failures and retry scenarios
